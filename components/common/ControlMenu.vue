@@ -2,6 +2,7 @@
 import type { PropType } from "@vue/runtime-core";
 import { ref } from "vue";
 import type {ChangeEvent} from "rollup";
+import type {ISortOptions} from "~/models/diary.model";
 
 const props = defineProps({
   sortOptions: { type: Array as PropType<ISortOptions[]>, required: true },

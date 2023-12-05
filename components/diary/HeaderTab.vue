@@ -21,8 +21,6 @@ const { date, month } = storeToRefs(useDateStore())
       </div>
     </header>
   </div>
-
-  {{date.get}}
 </template>
 
 <style scoped>

@@ -2,6 +2,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     'CommonControlMenu': typeof import("../components/common/ControlMenu.vue")['default']
+    'CommonDiaryItem': typeof import("../components/common/DiaryItem.vue")['default']
     'CommonMyButton': typeof import("../components/common/MyButton.vue")['default']
     'DiaryList': typeof import("../components/diary/DiaryList.vue")['default']
     'DiaryHeaderTab': typeof import("../components/diary/HeaderTab.vue")['default']
@@ -26,6 +27,7 @@ declare module 'vue' {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyCommonControlMenu': typeof import("../components/common/ControlMenu.vue")['default']
+    'LazyCommonDiaryItem': typeof import("../components/common/DiaryItem.vue")['default']
     'LazyCommonMyButton': typeof import("../components/common/MyButton.vue")['default']
     'LazyDiaryList': typeof import("../components/diary/DiaryList.vue")['default']
     'LazyDiaryHeaderTab': typeof import("../components/diary/HeaderTab.vue")['default']
@@ -53,6 +55,7 @@ declare module 'vue' {
 }
 
 export const CommonControlMenu: typeof import("../components/common/ControlMenu.vue")['default']
+export const CommonDiaryItem: typeof import("../components/common/DiaryItem.vue")['default']
 export const CommonMyButton: typeof import("../components/common/MyButton.vue")['default']
 export const DiaryList: typeof import("../components/diary/DiaryList.vue")['default']
 export const DiaryHeaderTab: typeof import("../components/diary/HeaderTab.vue")['default']
@@ -77,6 +80,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyCommonControlMenu: typeof import("../components/common/ControlMenu.vue")['default']
+export const LazyCommonDiaryItem: typeof import("../components/common/DiaryItem.vue")['default']
 export const LazyCommonMyButton: typeof import("../components/common/MyButton.vue")['default']
 export const LazyDiaryList: typeof import("../components/diary/DiaryList.vue")['default']
 export const LazyDiaryHeaderTab: typeof import("../components/diary/HeaderTab.vue")['default']
