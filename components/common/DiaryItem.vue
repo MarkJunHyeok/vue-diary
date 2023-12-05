@@ -43,7 +43,7 @@ const imageClass = computed(() => {
     </div>
     <div class="info_wrapper">
       <div class="diary_date">
-        {{props.date.toDateString()}}
+        {{props.date.getFullYear()}}-{{props.date.getMonth()}}-{{props.date.getDate()}}
       </div>
       <div class="diary_content_preview">
         {{props.text}}
