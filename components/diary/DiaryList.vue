@@ -54,7 +54,7 @@ initDiary()
       </div>
 
       <div class="right_col">
-        <MyButton :type="ButtonType.POSITIVE" text="새 일기 쓰기" @click="router.push('/diary/new')"/>
+        <MyButton :type="ButtonType.POSITIVE" text="새 일기쓰기" @click="router.push('/diary/new')"/>
       </div>
     </div>
 
