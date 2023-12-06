@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ButtonType} from "~/enum/buttonType";
-import HeaderTab from "~/components/diary/HeaderTab.vue";
+import HeaderTab from "~/components/diary/TabBar.vue";
 import useDiaryStore from "~/store/diary";
 import DiaryInfo from "~/components/common/DiaryInfo.vue";
 import MyButton from "~/components/common/MyButton.vue";

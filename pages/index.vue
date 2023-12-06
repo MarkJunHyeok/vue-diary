@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import useDateStore from "~/store/date";
 import {ButtonType} from "~/enum/buttonType";
-import HeaderTab from "~/components/diary/HeaderTab.vue";
+import HeaderTab from "~/components/diary/TabBar.vue";
 import MyButton from "~/components/common/MyButton.vue";
 import DiaryList from "~/components/diary/DiaryList.vue";
 import {storeToRefs} from "pinia";
