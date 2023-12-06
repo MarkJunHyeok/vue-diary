@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import useDateStore from "~/store/date";
-import {storeToRefs} from "pinia";
-
-const { date, month } = storeToRefs(useDateStore())
 </script>
 
 <template>
@@ -13,7 +9,7 @@ const { date, month } = storeToRefs(useDateStore())
       </div>
 
       <div class="head_text">
-        {{ date.getFullYear() }}년 {{ month }}월
+        <slot name="centerText"/>
       </div>
 
       <div class="head_btn_right">
@@ -31,7 +27,7 @@ header {
   border-bottom: 1px solid #e2e2e2;
 }
 
-header, header>div {
+header, header > div {
   display: flex;
 }
 
@@ -51,7 +47,7 @@ header .head_btn_right {
   justify-content: end;
 }
 
-header, header>div {
+header, header > div {
   display: flex;
 }
 </style>

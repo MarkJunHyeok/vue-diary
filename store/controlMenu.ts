@@ -1,7 +1,4 @@
-import {defineStore, storeToRefs} from "pinia";
-import type {IDiary} from "~/models/diary.model";
-import {DiaryType} from "~/enum/diaryType";
-import useDateStore from "~/store/date";
+import {defineStore} from "pinia";
 
 const useControlMenuStore = defineStore('controlMenu', () => {
     const leftControlMenuDefaultOption = ref('latest');
@@ -15,7 +12,12 @@ const useControlMenuStore = defineStore('controlMenu', () => {
         rightControlMenuDefaultOption.value = value
     }
 
-    return { leftControlMenuDefaultOption, rightControlMenuDefaultOption, setLeftControlMenuDefaultOption, setRightControlMenuDefaultOption };
+    return {
+        leftControlMenuDefaultOption,
+        rightControlMenuDefaultOption,
+        setLeftControlMenuDefaultOption,
+        setRightControlMenuDefaultOption
+    };
 })
 
 export default useControlMenuStore

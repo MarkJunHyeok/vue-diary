@@ -38,7 +38,11 @@ const useDateStore = defineStore('date', () => {
         return date.value.getMonth() + 1
     });
 
-    return {date, incrementDate, decrementDate, month}
+    const getYearAndMonth = computed(() => {
+        return `${date.value.getFullYear()}년 ${month.value}월`
+    })
+
+    return {date, incrementDate, decrementDate, getYearAndMonth}
 })
 
 export default useDateStore

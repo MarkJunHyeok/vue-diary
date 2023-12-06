@@ -5,8 +5,8 @@ import Button from "~/components/common/MyButton.vue";
 import {ButtonType} from "~/enum/buttonType";
 
 const props = defineProps({
-  text: { type: String, required: true },
-  type: { type: Object as PropType<ButtonType>, required: true }
+  text: {type: String, required: true},
+  type: {type: Object as PropType<ButtonType>, required: true}
 });
 
 const getButtonClass = (type: ButtonType) => {
@@ -40,6 +40,7 @@ const getButtonClass = (type: ButtonType) => {
   white-space: nowrap;
   font-family: "Nanum Pen Script";
 }
+
 .default-button {
   background-color: #ececec;
   color: #000;

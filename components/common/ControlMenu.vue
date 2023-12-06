@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import type { PropType } from "@vue/runtime-core";
-import { ref } from "vue";
-import type {ChangeEvent} from "rollup";
+import type {PropType} from "@vue/runtime-core";
 import type {ISortOptions} from "~/models/diary.model";
 
 const props = defineProps({
-  sortOptions: { type: Array as PropType<ISortOptions[]>, required: true },
-  defaultOption: { type: String, required: true },
+  sortOptions: {type: Array as PropType<ISortOptions[]>, required: true},
+  defaultOption: {type: String, required: true},
   setDefaultOption: {type: Function as PropType<(defaultOption: string) => void>, required: true}
 });
 

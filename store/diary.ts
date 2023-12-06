@@ -9,26 +9,30 @@ const useDiaryStore = defineStore('diary', () => {
 
     const initDiary = () => {
         diaries.value = [{
+            id: 1,
             text: '영한님',
             date: new Date(2023, 11, 10),
             type: DiaryType.GOOD
         }, {
+            id: 2,
             text: '준혁님',
             date: new Date(2023, 5, 20),
             type: DiaryType.SO_SO
         }, {
+            id: 3,
             text: '명환님',
-            date: new Date(2023, 5 , 30),
+            date: new Date(2023, 5, 30),
             type: DiaryType.VERY_GOOD
         }, {
+            id: 4,
             text: '경민님',
             date: new Date(2023, 11, 30),
             type: DiaryType.VERY_BAD
         }]
     }
 
-    const { date } = storeToRefs(useDateStore());
-    const { leftControlMenuDefaultOption, rightControlMenuDefaultOption } = storeToRefs(useControlMenuStore());
+    const {date} = storeToRefs(useDateStore());
+    const {leftControlMenuDefaultOption, rightControlMenuDefaultOption} = storeToRefs(useControlMenuStore());
 
     // 선택된 년도와 같은 년도의 일기만 필터링하는 computed 속성
     const filteredDiaries = computed(() => {
@@ -49,13 +53,13 @@ const useDiaryStore = defineStore('diary', () => {
         }
 
         if (rightControlMenuDefaultOption.value === 'good') {
-            copyDiaries = copyDiaries.filter(diary=>
+            copyDiaries = copyDiaries.filter(diary =>
                 diary.type === DiaryType.SO_SO
                 || diary.type === DiaryType.GOOD
                 || diary.type === DiaryType.VERY_GOOD
             )
         } else if (rightControlMenuDefaultOption.value === 'bad') {
-            copyDiaries = copyDiaries.filter(diary=>
+            copyDiaries = copyDiaries.filter(diary =>
                 diary.type === DiaryType.BAD
                 || diary.type === DiaryType.VERY_BAD
             )
@@ -64,7 +68,9 @@ const useDiaryStore = defineStore('diary', () => {
         return copyDiaries;
     });
 
-    return { diaries, initDiary, filteredDiaries };
+    const getDetail = ((id: number) => diaries.value.find(it => it.id === id))
+
+    return {diaries, initDiary, filteredDiaries, getDetail};
 })
 
 export default useDiaryStore

@@ -1,6 +1,13 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
-  <NuxtPage/>
+  <div>
+    hi233
+  </div>
 </template>
+
+<style scoped>
+
+</style>

@@ -6,6 +6,7 @@ export interface ISortOptions {
 }
 
 export interface IDiary {
+    id: number,
     text: string,
     date: Date,
     type: DiaryType
