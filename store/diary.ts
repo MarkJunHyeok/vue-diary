@@ -3,32 +3,35 @@ import type {IDiary} from "~/models/diary.model";
 import {DiaryType} from "~/enum/diaryType";
 import useDateStore from "~/store/date";
 import useControlMenuStore from "~/store/controlMenu";
+import type {ID} from "@vue/devtools-api";
 
 const useDiaryStore = defineStore('diary', () => {
     const diaries = ref<IDiary[]>([])
 
     const initDiary = () => {
-        diaries.value = [{
-            id: 1,
-            text: '영한님',
-            date: new Date(2023, 11, 10),
-            type: DiaryType.GOOD
-        }, {
-            id: 2,
-            text: '준혁님',
-            date: new Date(2023, 5, 20),
-            type: DiaryType.SO_SO
-        }, {
-            id: 3,
-            text: '명환님',
-            date: new Date(2023, 5, 30),
-            type: DiaryType.VERY_GOOD
-        }, {
-            id: 4,
-            text: '경민님',
-            date: new Date(2023, 11, 30),
-            type: DiaryType.VERY_BAD
-        }]
+        if(diaries.value.length == 0){
+            diaries.value = [{
+                id: 1,
+                text: '영한님',
+                date: new Date(2023, 11, 10),
+                type: DiaryType.GOOD
+            }, {
+                id: 2,
+                text: '준혁님',
+                date: new Date(2023, 5, 20),
+                type: DiaryType.SO_SO
+            }, {
+                id: 3,
+                text: '명환님',
+                date: new Date(2023, 5, 30),
+                type: DiaryType.VERY_GOOD
+            }, {
+                id: 4,
+                text: '경민님',
+                date: new Date(2023, 11, 30),
+                type: DiaryType.VERY_BAD
+            }]
+        }
     }
 
     const {date} = storeToRefs(useDateStore());
@@ -70,7 +73,13 @@ const useDiaryStore = defineStore('diary', () => {
 
     const getDetail = ((id: number) => diaries.value.find(it => it.id === id))
 
-    return {diaries, initDiary, filteredDiaries, getDetail};
+    const addDiary = (diary: IDiary) => {
+        diaries.value.push(diary)
+    }
+
+    const getNewDiaryId = computed(() => diaries.value[diaries.value.length - 1].id + 1 )
+
+    return {diaries, initDiary, filteredDiaries, getDetail, addDiary, getNewDiaryId};
 })
 
 export default useDiaryStore

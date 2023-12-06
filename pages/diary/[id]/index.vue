@@ -21,27 +21,27 @@ const diaryDetail = getDetail(parseInt(diaryId.toString()));
 
 <template>
   <body>
-  <div class="main">
-    <div>
-      <HeaderTab>
-        <template v-slot:leftButton>
-          <MyButton :type="ButtonType.DEFAULT" text="< 뒤로가기" @click="router.go(-1)"/>
-        </template>
+    <div class="main">
+      <div>
+        <HeaderTab>
+          <template v-slot:leftButton>
+            <MyButton :type="ButtonType.DEFAULT" text="< 뒤로가기" @click="router.go(-1)"/>
+          </template>
 
-        <template v-slot:centerText>
-          {{ diaryDetail.date.getFullYear() }}-{{ diaryDetail.date.getMonth() + 1 }}-{{ diaryDetail.date.getDate() }} 기록
-        </template>
+          <template v-slot:centerText>
+            {{ diaryDetail.date.getFullYear() }}-{{ diaryDetail.date.getMonth() + 1 }}-{{ diaryDetail.date.getDate() }} 기록
+          </template>
 
-        <template v-slot:rightButton>
-          <MyButton :type="ButtonType.DEFAULT" text="수정하기" @click="redirectToEdit"/>
-        </template>
-      </HeaderTab>
+          <template v-slot:rightButton>
+            <MyButton :type="ButtonType.DEFAULT" text="수정하기" @click="redirectToEdit"/>
+          </template>
+        </HeaderTab>
+      </div>
+
+      <div>
+        <DiaryInfo :diary="diaryDetail"/>
+      </div>
     </div>
-
-    <div>
-      <DiaryInfo :diary="diaryDetail"/>
-    </div>
-  </div>
   </body>
 </template>
 

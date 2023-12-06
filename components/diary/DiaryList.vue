@@ -12,6 +12,7 @@ const {initDiary} = useDiaryStore();
 const {filteredDiaries} = storeToRefs(useDiaryStore());
 const {leftControlMenuDefaultOption, rightControlMenuDefaultOption} = storeToRefs(useControlMenuStore());
 const {setLeftControlMenuDefaultOption, setRightControlMenuDefaultOption} = useControlMenuStore();
+const router = useRouter();
 
 const controlMenuLeft: ISortOptions[] = [{
   name: '최신 순',
@@ -53,7 +54,7 @@ initDiary()
       </div>
 
       <div class="right_col">
-        <MyButton :type="ButtonType.POSITIVE" text="새 일기 쓰기"/>
+        <MyButton :type="ButtonType.POSITIVE" text="새 일기 쓰기" @click="router.push('/diary/new')"/>
       </div>
     </div>
 
