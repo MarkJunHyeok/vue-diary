@@ -1,13 +1,38 @@
 <script setup lang="ts">
 
+import {ButtonType} from "~/enum/buttonType";
+import TabBar from "~/components/diary/TabBar.vue";
+import MyButton from "~/components/common/MyButton.vue";
+import DiaryForm from "~/components/diary/DiaryForm.vue";
+
+const router = useRouter()
 </script>
 
 <template>
-  <div>
-    hi233
+  <body>
+  <div class="main">
+    <div>
+      <TabBar>
+        <template v-slot:leftButton>
+          <MyButton :type="ButtonType.DEFAULT" text="< 뒤로가기" @click="router.go(-1)"/>
+        </template>
+
+        <template v-slot:centerText>
+          일기 수정하기
+        </template>
+
+        <template v-slot:rightButton>
+          <MyButton :type="ButtonType.NEGATIVE" text="삭제하기"/>
+        </template>
+      </TabBar>
+    </div>
+    <div>
+      <DiaryForm/>
+    </div>
   </div>
+  </body>
 </template>
 
-<style scoped>
+<style src="~/assets/css/container.css">
 
 </style>

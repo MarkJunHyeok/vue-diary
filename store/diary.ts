@@ -77,9 +77,15 @@ const useDiaryStore = defineStore('diary', () => {
         diaries.value.push(diary)
     }
 
+    const editDiary = (diary: IDiary) => {
+        const index = diaries.value.findIndex((item) => item.id === diary.id);
+
+        diaries.value[index] = diary;
+    }
+
     const getNewDiaryId = computed(() => diaries.value[diaries.value.length - 1].id + 1 )
 
-    return {diaries, initDiary, filteredDiaries, getDetail, addDiary, getNewDiaryId};
+    return {diaries, initDiary, filteredDiaries, getDetail, addDiary, editDiary, getNewDiaryId};
 })
 
 export default useDiaryStore

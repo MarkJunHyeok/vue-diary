@@ -9,24 +9,49 @@ import {storeToRefs} from "pinia";
 import Calender from "~/components/common/Calender.vue";
 import Emotions from "~/components/common/Emotions.vue";
 
+const route = useRoute();
 const router = useRouter();
 const currentDate = ref(new Date().toISOString().split('T')[0]);
 const currentType = ref(DiaryType.SO_SO)
 const currentText = ref('')
-const {addDiary} = useDiaryStore();
+const {addDiary, editDiary, getDetail} = useDiaryStore();
 const {getNewDiaryId} = storeToRefs(useDiaryStore());
 
-const submit = () => {
-  const result = confirm("새로운 일기를 작성하시겠습니까?");
+if (route.params.id) {
+  const detailId = route.params.id;
+  const detail = getDetail(parseInt(detailId.toString()));
 
-  if (result) {
-    addDiary({
-      id: getNewDiaryId.value,
-      text: currentText.value,
-      type: currentType.value,
-      date: new Date(currentDate.value)
-    })
+  currentText.value = detail!.text
+  currentType.value = detail!.type
+  currentDate.value = detail!.date.toISOString().split('T')[0]
+}
+
+const submit = () => {
+  if (route.params.id) {
+    const result = confirm("일기를 수정하시겠습니까?");
+
+    if (result) {
+      editDiary({
+        id: parseInt(route.params.id.toString()),
+        text: currentText.value,
+        type: currentType.value,
+        date: new Date(currentDate.value)
+      })
+    }
     router.push('/')
+  } else {
+    const result = confirm("새로운 일기를 작성하시겠습니까?");
+
+    if (result) {
+      addDiary({
+        id: getNewDiaryId.value,
+        text: currentText.value,
+        type: currentType.value,
+        date: new Date(currentDate.value)
+      })
+
+      router.push('/')
+    }
   }
 }
 
@@ -63,7 +88,7 @@ const submit = () => {
         <MyButton :type="ButtonType.DEFAULT" text="< 뒤로가기" @click="router.go(-1)"/>
       </template>
       <template v-slot:rightButton>
-        <MyButton :type="ButtonType.DEFAULT" text="작성 완료" @click="submit"/>
+        <MyButton :type="ButtonType.POSITIVE" text="작성 완료" @click="submit"/>
       </template>
     </TabBar>
   </section>

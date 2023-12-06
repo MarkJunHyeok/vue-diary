@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {ButtonType} from "~/enum/buttonType";
 import TabBar from "~/components/diary/TabBar.vue";
 import MyButton from "~/components/common/MyButton.vue";
 import DiaryForm from "~/components/diary/DiaryForm.vue";
+import {ButtonType} from "~/enum/buttonType";
 
 const router = useRouter();
 </script>
@@ -22,11 +22,11 @@ const router = useRouter();
       </TabBar>
     </div>
     <div>
-      <DiaryForm />
+      <DiaryForm/>
     </div>
   </div>
   </body>
 </template>
 
-<style scoped>
+<style src="~/assets/css/container.css">
 </style>
