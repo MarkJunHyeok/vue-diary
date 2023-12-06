@@ -14,7 +14,7 @@ const props = defineProps({
 // 이미지 경로를 계산하는 computed 속성
 const emotionImageUrl = computed(() => {
   const imageName = getEmotionImageName(props.diary.type); // type에 따른 이미지 이름을 결정하는 함수
-  return `/_nuxt/assets/img/emotion/${imageName}.png`; // 이미지 경로를 동적으로 생성
+  return new URL(`/assets/img/emotion/${imageName}.png`, import.meta.url).href; // 이미지 경로를 동적으로 생성
 });
 
 function getEmotionImageName(type: DiaryType) {
@@ -50,6 +50,7 @@ const imageClass = computed(() => {
 const renderLink = ref(false)
 
 onMounted(() => renderLink.value = true)
+
 
 </script>
 
