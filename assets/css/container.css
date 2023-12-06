@@ -19,7 +19,11 @@ body {
     padding-right: 20px;
     width: 640px;
 }
-
+@media (min-width: 650px) {
+    .main {
+        width: 640px;
+    }
+}
 
 @media (max-width: 650px) {
     .main {

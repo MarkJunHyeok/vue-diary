@@ -62,7 +62,7 @@ onMounted(() => renderLink.value = true)
       </div>
       <div class="info_wrapper">
         <div class="diary_date">
-          {{ props.diary.date.getFullYear() }}-{{ props.diary.date.getMonth() +1 }}-{{ props.diary.date.getDate() }}
+          {{ props.diary.date.getDate() }}/{{ props.diary.date.getMonth() +1 }}/{{ props.diary.date.getFullYear() }}
         </div>
         <div class="diary_content_preview">
           {{ props.diary.text }}
